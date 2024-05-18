@@ -38,13 +38,13 @@ export default function DeleteModal (props) {
         style={({ pressed }) => [
           {
             backgroundColor: pressed
-              ? GlobalStyles.brandPrimaryTap
-              : GlobalStyles.brandPrimary
+              ? GlobalStyles.brandGreenTap
+              : GlobalStyles.brandGreen
           },
           styles.actionButton
         ]}>
       <View style={[{ flex: 1, flexDirection: 'row', justifyContent: 'center' }]}>
-        <MaterialCommunityIcons name='lipstick' color={'white'} size={20}/>
+        <MaterialCommunityIcons name='minecraft' color={'white'} size={20}/>
         <TextRegular textStyle={styles.text}>
           Confirm promote
         </TextRegular>

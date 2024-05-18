@@ -108,29 +108,6 @@ export default function RestaurantsScreen ({ navigation, route }) {
     )
   }
 
-  const promoteRestaurant = async (item) => {
-    try {
-      await promote(item.id)
-      await fetchRestaurants()
-      setPromote(null)
-
-      showMessage({
-        message: 'Restaurant succesfully promoted',
-        type: 'success',
-        style: GlobalStyles.flashStyle,
-        titleStyle: GlobalStyles.flashTextStyle
-      })
-    } catch (error) {
-      console.log(error)
-      setRestaurantToBeDeleted(null)
-      showMessage({
-        message: 'Restaurant could not be promote.',
-        type: 'error',
-        style: GlobalStyles.flashStyle,
-        titleStyle: GlobalStyles.flashTextStyle
-      })
-    }
-  }
   const renderEmptyRestaurantsList = () => {
     return (
       <TextRegular textStyle={styles.emptyList}>
@@ -178,7 +155,29 @@ export default function RestaurantsScreen ({ navigation, route }) {
       })
     }
   }
+  const promoteRestaurant = async (item) => {
+    try {
+      await promote(item.id)
+      await fetchRestaurants()
+      setPromote(null)
 
+      showMessage({
+        message: 'Restaurant succesfully promoted',
+        type: 'success',
+        style: GlobalStyles.flashStyle,
+        titleStyle: GlobalStyles.flashTextStyle
+      })
+    } catch (error) {
+      console.log(error)
+      setRestaurantToBeDeleted(null)
+      showMessage({
+        message: 'Restaurant could not be promote.',
+        type: 'error',
+        style: GlobalStyles.flashStyle,
+        titleStyle: GlobalStyles.flashTextStyle
+      })
+    }
+  }
   const removeRestaurant = async (restaurant) => {
     try {
       await remove(restaurant.id)

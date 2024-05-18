@@ -34,6 +34,7 @@ const loadFileRoutes = function (app) {
       handleFilesUpload(['logo', 'heroImage'], process.env.RESTAURANTS_FOLDER),
       RestaurantValidation.update,
       handleValidation,
+      RestaurantMiddleware.checkRestaurantPromoted,
       RestaurantController.update)
     .delete(
       isLoggedIn,
